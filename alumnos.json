@@ -1,1 +1,38 @@
-"{\"1\": [\"AMANDA GIRALDO MUNEVAR\", [\"PROGRAMACI\\u00d3N\", \"INGL\\u00c9S\", \"COUCHING\"], true], \"2\": [\"JORGE RODRIGUEZ ALANIS\", [\"PROGRAMACI\\u00d3N\", \"INGL\\u00c9S\", \"COUCHING\"], true], \"3\": [\"JAVIER HERNANDEZ MORA\", [\"PROGRAMACI\\u00d3N\", \"INGL\\u00c9S\", \"COUCHING\"], false]}"
+{
+    "1": [
+        "AMANDA GIRALDO MUNEVAR",
+        [
+            "PROGRAMACIÓN",
+            "INGLÉS",
+            "COUCHING"
+        ],
+        true
+    ],
+    "2": [
+        "JORGE RODRIGUEZ ALANIS",
+        [
+            "PROGRAMACIÓN",
+            "INGLÉS",
+            "COUCHING"
+        ],
+        true
+    ],
+    "3": [
+        "JAVIER HERNANDEZ MORA",
+        [
+            "PROGRAMACIÓN",
+            "INGLÉS",
+            "COUCHING"
+        ],
+        false
+    ],
+    "4": [
+        "JUAN REYES MORA",
+        [
+            "PROGRAMACIÓN",
+            "INGLÉS",
+            "COUCHING"
+        ],
+        false
+    ]
+}

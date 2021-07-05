@@ -4,7 +4,9 @@
   Módulo de opciones del sistema
 """
 import os
-# from manejo_archivos import *
+from manejo_archivos import *
+
+registro = leer_data()
 
 def borrarPantalla(): #
    if os.name == "posix":
@@ -12,6 +14,7 @@ def borrarPantalla(): #
    elif os.name == "ce" or os.name == "nt" or os.name == "dos":
       os.system("clear")
       # os.system("cls")
+
 
 def menu():
    print("*"*80)
@@ -33,7 +36,7 @@ def menu():
    return op
 
 def ingresar(registro):
-   #  registro = grabar_datos(registro)
+   registro = subir_data(registro)
    borrarPantalla()
    while True:
       try:
@@ -81,6 +84,7 @@ def ingresar(registro):
 
 
 def modificar(registro):
+   registro = subir_data(registro)
    borrarPantalla()
    print("-------------------")
    print("Modificar Registro")
@@ -137,15 +141,15 @@ def consultar(registro):
    print("-------------------")
    while True:
       try:
-         numero_consulta = int(input("Ingrese el numero que desea consultar 0 para <Salir>: "))
+         numero_consulta = input("Ingrese el numero que desea consultar, Enter para <Salir>: ")
          if numero_consulta in registro:
-            print(f"Nombre: {registro[numero_consulta][0]} ")
+            print(f"Nombre: {registro[numero_consulta][0]}")
             print(f"Clases asignadas: {registro[numero_consulta][1]}")
             if registro[numero_consulta][2] == True:
                print("Activo SI")
             else:
                print("Activo No")
-         elif numero_consulta == 0:
+         elif numero_consulta == "":
             break
          else:
             print("El registro no esta en la base de datos")
@@ -153,6 +157,7 @@ def consultar(registro):
          print("Ingrese un valor correcto")
 
 def eliminar(registro):
+   registro = subir_data(registro)
    borrarPantalla()
    print("-------------------")
    print("Eliminar Registro")
