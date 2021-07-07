@@ -6,8 +6,6 @@
 import os
 from manejo_archivos import *
 
-registro = leer_data()
-
 def borrarPantalla(): #
    if os.name == "posix":
       os.system("clear")
@@ -36,7 +34,6 @@ def menu():
    return op
 
 def ingresar(registro):
-   registro = subir_data(registro)
    borrarPantalla()
    while True:
       try:
@@ -44,14 +41,13 @@ def ingresar(registro):
          print("Ingreso de Registro")
          print("-------------------")
          while True:
-            numero_registro = int(input("Numero de registro: "))
+            numero_registro = input("Numero de registro: ")
             if numero_registro in registro:
                print("-------------------")
                print(f"Ingrese otro Numero de registro, {numero_registro} ya existe ")
                print("-------------------")
             else:
                break
-         print(numero_registro)
          nombre = input("Nombre(s) y Apellido(s): ")
          datos = [nombre.upper()]
          materias = []
@@ -84,7 +80,6 @@ def ingresar(registro):
 
 
 def modificar(registro):
-   registro = subir_data(registro)
    borrarPantalla()
    print("-------------------")
    print("Modificar Registro")
@@ -92,7 +87,7 @@ def modificar(registro):
    while True:
       try:
          while True:
-            numero_modificar = int(input("Ingrese el numero de registro que desea modificar: "))
+            numero_modificar = input("Ingrese el numero de registro que desea modificar: ")
             if numero_modificar in registro:
                break
             else:
@@ -166,9 +161,11 @@ def eliminar(registro):
       try:
          while True:
             try:
-               borrar_registro = int(input("Ingrese el numero de registro que desea eliminar: "))
+               borrar_registro = input("Ingrese el numero de registro que desea eliminar <Enter> para Salir: ")
                if borrar_registro in registro:
                   break
+               elif  borrar_registro == "":
+                   break
                else:
                   print(f"El registro {borrar_registro} no esta en la base de datos")
             except ValueError:

@@ -25,21 +25,16 @@ from pprint import pprint
 # with open("alumnos.json", "r") as f:
 #     registro = json.loads(f)
 
-
 def subir_data(registro):
     # Para guardar formato en JSON
-    with open("alumnos.json", "w") as file:
-        json.dump(registro, file, indent = 4)
-    
-    if registro in file:
-        registro = json.load(file)
-    
-    return registro
+    with open('alumnos.json', 'w') as file:
+        json.dump(registro, file, ensure_ascii=False, indent=4)
 
+    return registro
 
 def leer_data():
     # convertir = json.loads(registro)
-    with open("alumnos.json") as file:
+    with open("alumnos.json", "r") as file:
         registro = json.load(file)
     return registro
 
