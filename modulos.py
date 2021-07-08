@@ -51,16 +51,16 @@ def ingresar(registro):
          nombre = input("Nombre(s) y Apellido(s): ")
          datos = [nombre.upper()]
          materias = []
-         for i in range(3):
-            materia = input("Ingrese la materia: ")
+         # for i in range(3):
+         #    materia = input("Ingrese la materia: ")
+         #    materias.append(materia.upper())
+         # datos.append(materias)
+         while True:
+            materia = input("Ingrese las materias, C para continuar: ")
             materias.append(materia.upper())
+            if materia.upper() == "C":
+               break
          datos.append(materias)
-            # while True:
-            #     materia = input("Ingrese las materias, C para continuar: ")
-            #     materias.append(materia.upper())
-            #     if materia.upper() == "C":
-            #        break
-            # datos.append(materias)
          while True:
             esta_activo = input("Esta Activo (S/N): ")
             if esta_activo.upper() == "S":
@@ -103,10 +103,12 @@ def modificar(registro):
                   print("Modificacion Exitosa!")
                elif valor_estudiante == 2:
                   materias = []
-                  for i in range(3):
-                     materia = input("Ingrese la materia: ")
+                  while True:
+                     materia = input("Ingrese las materias, C para continuar: ")
                      materias.append(materia.upper())
-                  registro[numero_modificar][1] = materias
+                     if materia.upper() == "C":
+                        break
+                     registro[numero_modificar][1] = materias
                   print("Modificacion Exitosa!")
                elif valor_estudiante == 3:
                   while True:
@@ -158,18 +160,8 @@ def eliminar(registro):
    print("Eliminar Registro")
    print("-------------------")
    while True:
-      try:
-         while True:
-            try:
-               borrar_registro = input("Ingrese el numero de registro que desea eliminar <Enter> para Salir: ")
-               if borrar_registro in registro:
-                  break
-               elif  borrar_registro == "":
-                   break
-               else:
-                  print(f"El registro {borrar_registro} no esta en la base de datos")
-            except ValueError:
-               print("Ingrese un valor valido")
+      borrar_registro = input("Ingrese el numero de registro que desea eliminar <Enter> para Salir: ")
+      if borrar_registro in registro:
          print("Esta a punto de eliminar el siguiente registro")
          print(registro[borrar_registro])
          while True:
@@ -185,7 +177,9 @@ def eliminar(registro):
                   print("Ingresa un valor correcto S o N")
             except ValueError:
                print("Ingrese un valor valido")
-      except ValueError:
-         print("Ingrese un valor valido")
+      elif borrar_registro == "":
+         break
+      else:
+         print(f"El registro {borrar_registro} no esta en la base de datos")
       break
    return registro
